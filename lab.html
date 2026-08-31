@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Osaghale CompBio Lab – In Silico Computational Biology</title>
+  <meta name="description" content="Osaghale CompBio Lab: In silico computational biology research on antimicrobial resistance, genomics, machine learning, and protein science.">
+
+  <!-- ===== JAVASCRIPT PROTECTION ===== -->
+  <script>
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      alert('Right-click is disabled on this site to protect content.');
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'p')) {
+        e.preventDefault();
+        alert('Keyboard shortcuts are disabled on this site to protect content.');
+      }
+    });
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #f4f6f8;
+      color: #2c3e50;
+      line-height: 1.7;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* ===== HEADER ===== */
+    .lab-header {
+      background: #1B3A5C;
+      color: #fff;
+      padding: 30px 0 25px;
+      text-align: center;
+      border-bottom: 4px solid #2A9D8F;
+    }
+    .lab-header .logo {
+      height: 60px;
+      width: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+    .lab-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 10px 0 5px;
+    }
+    .lab-header .parent-brand {
+      font-size: 1.1rem;
+      color: #a0c4e0;
+      margin: 0;
+    }
+    .lab-header .parent-brand strong { color: #2A9D8F; }
+    .lab-header .tagline {
+      font-size: 1rem;
+      color: #a0c4e0;
+      letter-spacing: 1px;
+      margin-top: 8px;
+    }
+    .lab-header nav {
+      margin-top: 20px;
+    }
+    .lab-header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+    .lab-header nav a:hover { color: #2A9D8F; }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 60px 0; }
+    section:nth-child(even) { background: #fff; }
+    section:nth-child(odd) { background: #f4f6f8; }
+
+    h2 {
+      font-size: 2rem;
+      color: #1B3A5C;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #2A9D8F;
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+    h3 { color: #1B3A5C; margin: 20px 0 10px; font-size: 1.3rem; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 20px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-left: 4px solid #2A9D8F;
+      transition: transform 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); }
+    .card h3 { margin-top: 0; }
+    .card .icon { font-size: 2.2rem; margin-bottom: 10px; }
+
+    .btn {
+      display: inline-block;
+      background: #2A9D8F;
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+    .btn:hover { background: #1f7a6e; }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #2A9D8F;
+      color: #2A9D8F;
+    }
+    .btn-outline:hover { background: #2A9D8F; color: #fff; }
+
+    .publication-list li {
+      margin-bottom: 18px;
+      list-style: none;
+      padding-left: 20px;
+      border-left: 3px solid #2A9D8F;
+      padding-bottom: 5px;
+    }
+    .publication-list a { color: #2A9D8F; text-decoration: none; }
+    .publication-list a:hover { text-decoration: underline; }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .hero-text { flex: 2; }
+    .hero-text h2 { border-bottom: none; display: block; font-size: 2.2rem; }
+    .hero-text p { font-size: 1.1rem; color: #2c3e50; margin-top: 10px; }
+    .hero-image { flex: 1; text-align: center; }
+    .hero-image img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1B3A5C;
+      color: #8aaec9;
+      text-align: center;
+      padding: 30px 0;
+      margin-top: 40px;
+    }
+    footer a { color: #a0c4e0; text-decoration: none; }
+    footer a:hover { color: #fff; }
+    .footer-logo { width: 30px; height: auto; vertical-align: middle; margin-right: 8px; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .lab-header h1 { font-size: 2rem; }
+      .lab-header nav a { margin: 0 10px; font-size: 0.85rem; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .hero { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="lab-header">
+  <div class="container">
+    <img src="ld-world-global-logo.png" alt="LD WORLD GLOBAL Logo" class="logo">
+    <h1>🧬 Osaghale CompBio Lab</h1>
+    <p class="parent-brand">A service of <strong>LD WORLD GLOBAL</strong></p>
+    <p class="tagline">In Silico Biology · AI · ML · Bioinformatics · Genomics · Protein Science</p>
+    <nav>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#methods">Methods</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section style="padding-top: 40px;">
+  <div class="container">
+    <div class="hero">
+      <div class="hero-text">
+        <h2>Advancing Precision Medicine Through Computational Biology</h2>
+        <p>The Osaghale CompBio Lab uses <strong>AI, machine learning, and bioinformatics</strong> to combat antimicrobial resistance, understand pathogen evolution, and translate genomic discoveries into actionable health insights.</p>
+        <a href="#research" class="btn">Explore Our Research →</a>
+        <a href="#publications" class="btn btn-outline" style="margin-left: 10px;">View Publications</a>
+      </div>
+      <div class="hero-image">
+        <img src="dna-network.jpg" alt="Computational biology research">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESEARCH ===== -->
+<section id="research">
+  <div class="container">
+    <h2>Research Focus</h2>
+    <p style="margin-bottom: 20px;">Our lab uses computational and AI‑driven approaches to address pressing challenges in infectious diseases, antimicrobial resistance, and precision medicine.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>AI &amp; ML for AMR</h3>
+        <p>Hybrid deep learning models (CNN–BiLSTM–Attention) for rapid AMR prediction from genomic data. <strong>AUROC 0.77</strong> across 22 antibiotics.</p>
+        <p style="font-size: 0.85rem; color: #8aaec9; margin-top: 8px;">TensorFlow · Keras · Python</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧬</div>
+        <h3>Phylogenomics &amp; Genomics</h3>
+        <p>Large‑scale comparative genomics of bacterial pathogens. Analysed <strong>&gt;1,255 S. aureus genomes</strong> using PGLS and Pagel's λ.</p>
+        <p style="font-size: 0.85rem; color: #8aaec9; margin-top: 8px;">R · Python · Snippy · FastTree</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔬</div>
+        <h3>Structural Bioinformatics</h3>
+        <p>Protein structure prediction (AlphaFold) and molecular docking (AutoDock Vina) for drug target identification and inhibitor discovery.</p>
+        <p style="font-size: 0.85rem; color: #8aaec9; margin-top: 8px;">AlphaFold · AutoDock Vina · PLIP</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Adaptive ML for Therapy</h3>
+        <p>RNNs, Bayesian change‑point detection, and reinforcement learning for personalised treatment optimisation. <strong>79.1% sensitivity</strong>.</p>
+        <p style="font-size: 0.85rem; color: #8aaec9; margin-top: 8px;">RL · LSTM · Python</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>Public Health Genomics</h3>
+        <p>One Health approaches to AMR surveillance, foodborne pathogen genomics, and environmental metagenomics.</p>
+        <p style="font-size: 0.85rem; color: #8aaec9; margin-top: 8px;">ABRicate · ResFinder · VFDB</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>Bioinformatics Pipelines</h3>
+        <p>Reproducible workflows for GWAS, WGCNA, k‑mer feature engineering, and network analysis.</p>
+        <p style="font-size: 0.85rem; color: #8aaec9; margin-top: 8px;">Python · R · GitHub</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PUBLICATIONS ===== -->
+<section id="publications" style="background: #fff;">
+  <div class="container">
+    <h2>Publications</h2>
+
+    <ul class="publication-list">
+      <li>
+        <strong>Osaghale L</strong>, Alhasnawi EAF, Beshiru A, Kanzin D, Olalere B. (2026). Hybrid deep learning–based rapid broad‑spectrum antimicrobial susceptibility prediction from whole‑genome assemblies. <em>Journal of Microbiological Methods</em>, 247, 107597.
+        <br><a href="https://doi.org/10.1016/j.mimet.2026.107597" target="_blank">DOI: 10.1016/j.mimet.2026.107597</a>
+      </li>
+      <li>
+        <strong>Osaghale L</strong>, Hoai NTT, Asante‑Poku A, Beshiru A. (2026). Phylogenomic analysis reveals lineage‑specific AMR–virulence association in <em>Staphylococcus aureus</em>. <em>Gene Reports</em>, 44, 102557.
+        <br><a href="https://doi.org/10.1016/j.genrep.2026.102557" target="_blank">DOI: 10.1016/j.genrep.2026.102557</a>
+      </li>
+      <li>
+        <strong>Osaghale L</strong>, Beshiru A, Edafetanure‑Ibeh OME, Ajoseh SO, Duggal AP. (2026). Integrative bioinformatics, machine learning, and molecular docking identify HigBA toxin‑antitoxin systems as key mediators of quorum sensing in <em>Acinetobacter baumannii</em>. <em>Journal of Computational Biology and Chemistry</em>, 125, 109362.
+        <br><a href="https://doi.org/10.1016/j.compbiochem.2026.109362" target="_blank">DOI: 10.1016/j.compbiochem.2026.109362</a>
+      </li>
+      <li>
+        <strong>Osaghale L</strong>. (2025). Adaptive and time‑sensitive machine learning framework for precision therapy in nontuberculous <em>Mycobacterium</em> infections. <em>European Journal of Medical and Health Research</em>, 3(6), 87–96.
+        <br><a href="https://doi.org/10.59324/ejmhr.2025.3(6).14" target="_blank">DOI: 10.59324/ejmhr.2025.3(6).14</a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== METHODS ===== -->
+<section id="methods">
+  <div class="container">
+    <h2>Core Computational Methods</h2>
+
+    <div class="grid-4">
+      <div class="card">
+        <div class="icon">🧠</div>
+        <h3>Deep Learning Models</h3>
+        <p>CNN · BiLSTM · Attention · RNN/LSTM · Reinforcement Learning</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>Machine Learning &amp; AI</h3>
+        <p>Random Forest · LASSO · Feature Selection · Classification · Predictive Modelling</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧬</div>
+        <h3>Genomic Analysis</h3>
+        <p>GWAS · Phylogenomics · PGLS · WGCNA · k‑mer · Variant Annotation</p>
+      </div>
+      <div class="card">
+        <div class="icon">🛠️</div>
+        <h3>Bioinformatics</h3>
+        <p>ABRicate · ResFinder · VFDB · AlphaFold · AutoDock Vina · PLIP</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT / PEOPLE ===== -->
+<section id="about" style="background: #fff;">
+  <div class="container" style="text-align: center;">
+    <h2>About the Lab</h2>
+    <div style="max-width: 600px; margin: 0 auto;">
+      <img src="linda.jpg" alt="Linda Osaghale" style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid #2A9D8F; object-fit: cover; margin-bottom: 15px;">
+      <h3 style="margin: 0;">Linda Osaghale</h3>
+      <p style="color: #8aaec9;">Principal Investigator</p>
+      <p style="font-size: 0.95rem; color: #2c3e50;">Microbiologist · Bioinformatician · AI Researcher</p>
+      <p style="font-size: 0.85rem; color: #8aaec9;">MSc Environmental Microbiology (First Class) · University of Ibadan</p>
+      <p style="font-size: 0.85rem; color: #8aaec9;">Founder, LD WORLD GLOBAL</p>
+      <p style="margin-top: 10px;">
+        <a href="https://orcid.org/0009-0000-3414-2814" target="_blank" style="color: #2A9D8F; margin: 0 8px;">ORCID</a> ·
+        <a href="https://github.com/Oselin1988" target="_blank" style="color: #2A9D8F; margin: 0 8px;">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/linda-osaghale-6929b3382" target="_blank" style="color: #2A9D8F; margin: 0 8px;">LinkedIn</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+      <div style="flex: 1;">
+        <p><strong>Principal Investigator:</strong><br>Linda Osaghale</p>
+        <p><strong>Email:</strong><br><a href="mailto:lindaosaghale@gmail.com" style="color: #2A9D8F;">lindaosaghale@gmail.com</a></p>
+        <p><strong>Phone:</strong><br>+234 816 674 5687</p>
+        <p><strong>ORCID:</strong><br><a href="https://orcid.org/0009-0000-3414-2814" target="_blank" style="color: #2A9D8F;">0009-0000-3414-2814</a></p>
+        <p><strong>GitHub:</strong><br><a href="https://github.com/Oselin1988" target="_blank" style="color: #2A9D8F;">github.com/Oselin1988</a></p>
+      </div>
+      <div style="flex: 1;">
+        <p><strong>Affiliated with:</strong><br>LD WORLD GLOBAL<br><a href="https://researchacademy.uk" target="_blank" style="color: #2A9D8F;">researchacademy.uk</a></p>
+        <p style="margin-top: 10px;"><strong>Blog:</strong><br><a href="https://blog.researchacademy.uk" target="_blank" style="color: #2A9D8F;">blog.researchacademy.uk</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <p>
+      <img src="ld-world-global-logo.png" alt="LD WORLD GLOBAL Logo" class="footer-logo">
+      © 2026 Osaghale CompBio Lab · LD WORLD GLOBAL. All rights reserved.
+    </p>
+    <p style="margin-top: 10px; font-size: 0.85rem;">
+      <a href="#research">Research</a> &nbsp;·&nbsp;
+      <a href="#publications">Publications</a> &nbsp;·&nbsp;
+      <a href="#methods">Methods</a> &nbsp;·&nbsp;
+      <a href="#about">About</a> &nbsp;·&nbsp;
+      <a href="#contact">Contact</a>
+    </p>
+    <p style="margin-top: 5px; font-size: 0.8rem; color: #6a8aa0;">
+      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" style="color: #6a8aa0;">
+        Creative Commons Attribution 4.0 International License
+      </a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
