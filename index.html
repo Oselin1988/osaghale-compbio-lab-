@@ -161,9 +161,12 @@
     }
 
     /* ===== PUBLICATIONS LIST ===== */
+    .publication-list {
+      list-style: none;
+      padding: 0;
+    }
     .publication-list li {
       margin-bottom: 18px;
-      list-style: none;
       padding-left: 20px;
       border-left: 3px solid #2A9D8F;
       padding-bottom: 5px;
@@ -176,72 +179,22 @@
       text-decoration: underline;
     }
 
-    /* ===== WORKFLOWS LIST ===== */
-    .workflow-list li {
-      margin-bottom: 22px;
-      list-style: none;
-      padding: 18px 25px;
-      background: #fff;
-      border-radius: 8px;
-      border-left: 5px solid #2A9D8F;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-    .workflow-list li strong a {
-      color: #1B3A5C;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-    .workflow-list li strong a:hover {
-      color: #2A9D8F;
-      text-decoration: underline;
-    }
-    .workflow-list p {
-      margin: 5px 0 0;
-      color: #2c3e50;
-      font-size: 0.95rem;
-    }
-    .workflow-list .repo-link {
-      margin: 3px 0 0;
-      font-size: 0.8rem;
-      color: #8aaec9;
-    }
-    .workflow-list .repo-link a {
-      color: #2A9D8F;
-      text-decoration: none;
-    }
-    .workflow-list .repo-link a:hover {
-      text-decoration: underline;
-    }
-
     /* ===== HERO ===== */
     .hero {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      flex-wrap: wrap;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
     }
-    .hero-text {
-      flex: 2;
-    }
-    .hero-text h2 {
+    .hero h2 {
       border-bottom: none;
       display: block;
       font-size: 2.2rem;
+      margin-bottom: 10px;
     }
-    .hero-text p {
+    .hero p {
       font-size: 1.1rem;
       color: #2c3e50;
-      margin-top: 10px;
-    }
-    .hero-image {
-      flex: 1;
-      text-align: center;
-    }
-    .hero-image img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
     }
 
     /* ===== RESEARCH PARAGRAPHS ===== */
@@ -251,13 +204,40 @@
       color: #2c3e50;
     }
 
+    /* ===== JOIN / COLLABORATE SECTION ===== */
+    .join-section {
+      text-align: center;
+      background: #1B3A5C;
+      color: #fff;
+    }
+    .join-section h2 {
+      color: #fff;
+      border-bottom-color: #2A9D8F;
+      display: inline-block;
+    }
+    .join-section p {
+      font-size: 1.15rem;
+      max-width: 700px;
+      margin: 10px auto 20px;
+      color: #a0c4e0;
+    }
+    .join-section .btn {
+      background: #2A9D8F;
+      color: #fff;
+      border: none;
+    }
+    .join-section .btn:hover {
+      background: #1f7a6e;
+      transform: scale(1.02);
+    }
+
     /* ===== FOOTER ===== */
     footer {
       background: #1B3A5C;
       color: #8aaec9;
       text-align: center;
       padding: 30px 0;
-      margin-top: 40px;
+      margin-top: 0;
     }
     footer a {
       color: #a0c4e0;
@@ -287,10 +267,6 @@
       .grid-4 {
         grid-template-columns: 1fr;
       }
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
     }
   </style>
 </head>
@@ -300,14 +276,15 @@
   <!-- ===== HEADER ===== -->
   <header class="lab-header">
     <div class="container">
-      <img src="ld-world-global-logo.png" alt="LD WORLD GLOBAL Logo" class="logo" />
+      <img src="logo.jpg" alt="LD WORLD GLOBAL Logo" class="logo" />
       <h1>🧬 Osaghale CompBio Lab</h1>
       <p class="parent-brand">A service of <strong>LD WORLD GLOBAL</strong></p>
       <p class="tagline">In Silico Biology · AI · ML · Bioinformatics · Genomics · Protein Science</p>
       <nav>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <a href="#workflows">Workflows</a>
+        <a href="https://github.com/oselin1988/ALL-WORKFLOWS" target="_blank">Workflows</a>
+        <a href="https://blog.researchacademy.uk/" target="_blank">Blog</a>
         <a href="#methods">Methods</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -319,15 +296,10 @@
   <section style="padding-top: 40px;">
     <div class="container">
       <div class="hero">
-        <div class="hero-text">
-          <h2>Advancing Precision Medicine Through Computational Biology</h2>
-          <p>The Osaghale CompBio Lab uses <strong>AI, machine learning, and bioinformatics</strong> to combat antimicrobial resistance, understand pathogen evolution, and translate genomic discoveries into actionable health insights.</p>
-          <a href="#research" class="btn">Explore Our Research →</a>
-          <a href="#publications" class="btn btn-outline" style="margin-left: 10px;">View Publications</a>
-        </div>
-        <div class="hero-image">
-          <img src="dna-network.jpg" alt="Computational biology research" />
-        </div>
+        <h2>Advancing Precision Medicine Through Computational Biology</h2>
+        <p>The Osaghale CompBio Lab uses <strong>AI, machine learning, and bioinformatics</strong> to combat antimicrobial resistance, understand pathogen evolution, and translate genomic discoveries into actionable health insights.</p>
+        <a href="#research" class="btn">Explore Our Research →</a>
+        <a href="#publications" class="btn btn-outline" style="margin-left: 10px;">View Publications</a>
       </div>
     </div>
   </section>
@@ -338,10 +310,7 @@
       <h2>Research Focus</h2>
       <div class="research-text">
         <p>
-          The Osaghale CompBio Lab focuses on integrating artificial intelligence, machine learning, and computational genomics to address critical challenges in infectious diseases and antimicrobial resistance (AMR). Our core approach involves developing hybrid deep learning architectures—including CNN–BiLSTM–Attention models—that enable rapid, broad-spectrum AMR prediction directly from whole-genome assemblies, achieving robust performance (AUROC 0.77) across 22 antibiotics. Additionally, we design adaptive, time-sensitive machine learning frameworks that combine RNNs, Bayesian change-point detection, and reinforcement learning to optimise personalised therapeutic regimens, demonstrating up to 79.1% sensitivity in complex infection models.
-        </p>
-        <p>
-          To understand the evolutionary and functional drivers of resistance, we perform large-scale comparative phylogenomics and population genomics, having analysed over 1,255 <em>Staphylococcus aureus</em> genomes using PGLS and Pagel's λ to uncover lineage-specific AMR–virulence associations. Our structural bioinformatics pipeline leverages AlphaFold for protein structure prediction and AutoDock Vina for molecular docking, accelerating the identification of novel drug targets and inhibitors. Across all investigations, we adhere to open-science principles and build reproducible, robust workflows for GWAS, WGCNA, k-mer feature engineering, and network analysis. We also apply a One Health perspective to our research, extending our computational methods to foodborne pathogen surveillance, environmental metagenomics, and public health genomics.
+          The Osaghale CompBio Lab focuses on integrating artificial intelligence, machine learning, and computational genomics to address critical challenges in infectious diseases and antimicrobial resistance (AMR). Our core approach involves developing hybrid deep learning architectures—including CNN–BiLSTM–Attention models—that enable rapid, broad-spectrum AMR prediction directly from whole-genome assemblies. Additionally, we design adaptive, time-sensitive machine learning frameworks that combine RNNs, Bayesian change-point detection, and reinforcement learning to optimise personalised therapeutic regimens. Our structural bioinformatics pipeline leverages AlphaFold for protein structure prediction and AutoDock Vina for molecular docking, accelerating the identification of novel drug targets and inhibitors. Across all investigations, we adhere to open-science principles and build reproducible, robust workflows for GWAS, WGCNA, k-mer feature engineering, and network analysis. We also apply a One Health perspective to our research, extending our computational methods to foodborne pathogen surveillance, environmental metagenomics, and public health genomics.
         </p>
       </div>
     </div>
@@ -372,84 +341,15 @@
     </div>
   </section>
 
-  <!-- ===== WORKFLOWS & SCRIPTS ===== -->
-  <section id="workflows">
-    <div class="container">
-      <h2>📜 Research Workflows &amp; Analysis Scripts</h2>
-      <p style="margin-bottom: 20px; max-width: 800px;">
-        Every published study from this lab is supported by fully documented, version-controlled
-        analysis scripts. Click any workflow below to view the complete code repository on GitHub.
-      </p>
-
-      <ul class="workflow-list">
-        <!--
-          !!! IMPORTANT !!!
-          Replace the GitHub URLs below with the actual links to YOUR repositories.
-          If you haven't created separate repos, you can link to a single main repo
-          or just link to your GitHub profile.
-        -->
-        <li>
-          <strong><a href="https://github.com/Oselin1988/amr-deep-learning" target="_blank">🧠 AMR Deep Learning Pipeline</a></strong>
-          <p>Hybrid CNN–BiLSTM–Attention model for rapid broad-spectrum AMR prediction from WGS data (Python, TensorFlow, Keras).</p>
-          <p class="repo-link"><a href="https://github.com/Oselin1988/amr-deep-learning" target="_blank">View Repository →</a></p>
-        </li>
-        <li>
-          <strong><a href="https://github.com/Oselin1988/saureus-phylogenomics" target="_blank">🧬 S. aureus Phylogenomics</a></strong>
-          <p>Comparative genomics and PGLS analysis of 1,255 S. aureus genomes (R, Python, Snippy, FastTree).</p>
-          <p class="repo-link"><a href="https://github.com/Oselin1988/saureus-phylogenomics" target="_blank">View Repository →</a></p>
-        </li>
-        <li>
-          <strong><a href="https://github.com/Oselin1988/docking-screening" target="_blank">🔬 Molecular Docking Screening</a></strong>
-          <p>AlphaFold structure prediction and AutoDock Vina high-throughput screening pipeline (Python, PLIP).</p>
-          <p class="repo-link"><a href="https://github.com/Oselin1988/docking-screening" target="_blank">View Repository →</a></p>
-        </li>
-        <li>
-          <strong><a href="https://github.com/Oselin1988/adaptive-ml-therapy" target="_blank">🧪 Adaptive ML for Precision Therapy</a></strong>
-          <p>RNN, Bayesian change-point detection, and RL for personalised treatment optimisation (Python, PyTorch).</p>
-          <p class="repo-link"><a href="https://github.com/Oselin1988/adaptive-ml-therapy" target="_blank">View Repository →</a></p>
-        </li>
-        <li>
-          <strong><a href="https://github.com/Oselin1988/amr-surveillance" target="_blank">🌍 AMR Surveillance &amp; Metagenomics</a></strong>
-          <p>Reproducible workflows for resistome profiling and foodborne pathogen surveillance (ABRicate, ResFinder, VFDB).</p>
-          <p class="repo-link"><a href="https://github.com/Oselin1988/amr-surveillance" target="_blank">View Repository →</a></p>
-        </li>
-        <li>
-          <strong><a href="https://github.com/Oselin1988/gwas-network-toolkit" target="_blank">📊 GWAS &amp; Network Analysis Toolkit</a></strong>
-          <p>Integrated pipelines for GWAS, WGCNA, k-mer engineering, and protein networks (R, Python, PLINK).</p>
-          <p class="repo-link"><a href="https://github.com/Oselin1988/gwas-network-toolkit" target="_blank">View Repository →</a></p>
-        </li>
-      </ul>
-
-      <p style="text-align: center; margin-top: 30px;">
-        <a href="https://github.com/Oselin1988" target="_blank" class="btn">🐙 Visit My GitHub Profile</a>
-      </p>
-    </div>
-  </section>
-
   <!-- ===== METHODS ===== -->
   <section id="methods" style="background: #fff;">
     <div class="container">
       <h2>Core Computational Methods</h2>
-      <div class="grid-4">
-        <div class="card">
-          <div class="icon">🧠</div>
-          <h3>Deep Learning Models</h3>
-          <p>CNN · BiLSTM · Attention · RNN/LSTM · Reinforcement Learning</p>
-        </div>
-        <div class="card">
-          <div class="icon">🤖</div>
-          <h3>Machine Learning &amp; AI</h3>
-          <p>Random Forest · LASSO · Feature Selection · Classification · Predictive Modelling</p>
-        </div>
-        <div class="card">
-          <div class="icon">🧬</div>
-          <h3>Genomic Analysis</h3>
-          <p>GWAS · Phylogenomics · PGLS · WGCNA · k‑mer · Variant Annotation</p>
-        </div>
-        <div class="card">
+      <div style="max-width: 700px; margin: 0 auto;">
+        <div class="card" style="text-align: center;">
           <div class="icon">🛠️</div>
-          <h3>Bioinformatics</h3>
-          <p>ABRicate · ResFinder · VFDB · AlphaFold · AutoDock Vina · PLIP</p>
+          <h3>Bioinformatics &amp; Structural Biology Toolbox</h3>
+          <p style="font-size: 1.1rem;">ABRicate · ResFinder · VFDB · AlphaFold · AutoDock Vina · PLIP</p>
         </div>
       </div>
     </div>
@@ -475,6 +375,18 @@
     </div>
   </section>
 
+  <!-- ===== JOIN / COLLABORATE SECTION ===== -->
+  <section id="join" class="join-section">
+    <div class="container">
+      <h2>🤝 Join Our Lab</h2>
+      <p>
+        Interested in joining our lab? Interested in collaboration?<br />
+        We are always open to connecting with passionate researchers, students, and collaborators.
+      </p>
+      <a href="mailto:contact@researchacademy.uk" class="btn">Contact Us at contact@researchacademy.uk →</a>
+    </div>
+  </section>
+
   <!-- ===== CONTACT ===== -->
   <section id="contact" style="background: #fff;">
     <div class="container">
@@ -489,7 +401,8 @@
         </div>
         <div style="flex: 1;">
           <p><strong>Affiliated with:</strong><br />LD WORLD GLOBAL<br /><a href="https://researchacademy.uk" target="_blank" style="color: #2A9D8F;">researchacademy.uk</a></p>
-          <p style="margin-top: 10px;"><strong>Blog:</strong><br /><a href="https://blog.researchacademy.uk" target="_blank" style="color: #2A9D8F;">blog.researchacademy.uk</a></p>
+          <p style="margin-top: 10px;"><strong>Blog:</strong><br /><a href="https://blog.researchacademy.uk/" target="_blank" style="color: #2A9D8F;">blog.researchacademy.uk</a></p>
+          <p style="margin-top: 10px;"><strong>Workflows:</strong><br /><a href="https://github.com/oselin1988/ALL-WORKFLOWS" target="_blank" style="color: #2A9D8F;">github.com/oselin1988/ALL-WORKFLOWS</a></p>
         </div>
       </div>
     </div>
@@ -499,13 +412,14 @@
   <footer>
     <div class="container">
       <p>
-        <img src="ld-world-global-logo.png" alt="LD WORLD GLOBAL Logo" class="footer-logo" />
+        <img src="logo.jpg" alt="LD WORLD GLOBAL Logo" class="footer-logo" />
         © 2026 Osaghale CompBio Lab · LD WORLD GLOBAL. All rights reserved.
       </p>
       <p style="margin-top: 10px; font-size: 0.85rem;">
         <a href="#research">Research</a> &nbsp;·&nbsp;
         <a href="#publications">Publications</a> &nbsp;·&nbsp;
-        <a href="#workflows">Workflows</a> &nbsp;·&nbsp;
+        <a href="https://github.com/oselin1988/ALL-WORKFLOWS" target="_blank">Workflows</a> &nbsp;·&nbsp;
+        <a href="https://blog.researchacademy.uk/" target="_blank">Blog</a> &nbsp;·&nbsp;
         <a href="#methods">Methods</a> &nbsp;·&nbsp;
         <a href="#about">About</a> &nbsp;·&nbsp;
         <a href="#contact">Contact</a>
